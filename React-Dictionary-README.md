@@ -78,3 +78,33 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
   Node.js Current: 25.5.0 node.js
   Node.js LTS (Active): 24.13.0 node.js
   npm: 11.8.0 npm
+
+- Installation steps:
+  ![Step 1](../BOOTCAMP_CONTENT-STUDY/INTRODUCTION-TO-REACT/Images/react-vite1.png)
+  ![Step 2](../BOOTCAMP_CONTENT-STUDY/INTRODUCTION-TO-REACT/Images/react-vite2.png)
+  ![Step 3](../BOOTCAMP_CONTENT-STUDY/INTRODUCTION-TO-REACT/Images/react-vite3.png)
+  ![Step 4](../BOOTCAMP_CONTENT-STUDY/INTRODUCTION-TO-REACT/Images/react-vite4.png)4
+
+### React Fundamentals: Study Cheat Sheet
+
+**1. Primary Purpose**
+The core goal of React is **to build user interfaces**. It focuses specifically on the "View" layer of an application, enabling the creation of interactive and dynamic visual elements.
+
+**2. Creating a New Project**
+To initialize a fresh React application, the standard command is **`npx create-react-app my-app`**. Using `npx` ensures you are running the most recent version of the tool directly from the npm registry.
+
+**3. JSX (JavaScript XML)**
+JSX is a **syntax extension for JavaScript** that allows you to write HTML-like structures directly inside your code. While it looks like HTML, it is transpiled into standard JavaScript, allowing you to embed logic and variables directly within your UI templates.
+
+**4. The Entry Point**
+The **`index.js`** file serves as the typical entry point where the root React component is rendered. It uses `ReactDOM` to inject your main `<App />` component into a specific DOM node (usually a `div` with `id="root"`) found in the `index.html` file.
+
+**5. Component-Based Architecture**
+The primary benefit of this architecture is that it makes code **easier to manage and maintain**. By breaking the UI into independent, reusable pieces, you can isolate functionality, simplify debugging, and scale your application more efficiently.
+
+---
+
+**Environment Status:**
+
+- **Node.js**: v22.18.0 (Update recommended to v24.13.0 LTS or v25.5.0 Current).
+- **npm**: 10.9.3 (Update recommended to 11.8.0).
