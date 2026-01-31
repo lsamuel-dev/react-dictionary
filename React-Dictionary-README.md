@@ -70,3 +70,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 - Use This Section for Most Up-To-Date React Information and Components: https://github.com/facebook/create-react-app
+
+## Setting up React using Vite
+
+- Get Node and NPM versions by running node -v and npm -v in the terminal.
+- Latest Node.js & npm Versions (Jan 2026)
+  Node.js Current: 25.5.0 node.js
+  Node.js LTS (Active): 24.13.0 node.js
+  npm: 11.8.0 npm
