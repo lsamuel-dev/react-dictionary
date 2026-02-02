@@ -1,4 +1,5 @@
 import React from "react";
+import "./WordCard.css";
 
 function WordCard(props) {
   return (
