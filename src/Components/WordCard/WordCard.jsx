@@ -1,11 +1,11 @@
 import React from "react";
 import "./WordCard.css";
 
-function WordCard(props) {
+function WordCard({ front, back }) {
   return (
     <div className="word-card">
-      <p>English: {props.en}</p>
-      <p>German: {props.de}</p>
+      <div className="card-front">English: {front}</div>
+      <div className="card-back">German: {back}</div>
     </div>
   );
 }
