@@ -3,7 +3,7 @@ import WordCard from "./Components/WordCard/WordCard";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <header className="App-header">Dictionary App</header>
       <main className="cards-container">
         <WordCard front="translation" back="Übersetzung" />
