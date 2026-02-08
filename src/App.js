@@ -1,27 +1,27 @@
 import React from "react";
 import "./App.css";
 import WordCard from "./Components/WordCard/WordCard";
+import CardsContainer from "./Components/CardsContainer/CardsContainer";
+import WordForm from "./Components/WordForm/WordForm";
 
 function App() {
   const [words, setWords] = React.useState([
     { front: "translation", back: "Übersetzung" },
     { front: "egg", back: "Ei" },
-    { front: "taxi", back: "Taxi" },
     { front: "paper", back: "Papier" },
     { front: "square", back: "Platz" },
-    { front: "seven", back: "sieben" }
   ]);
+
+  const cardList = words.map((word) => (
+    <WordCard front={word.front} back={word.back} key={`${word.front}`} />
+  ));
 
   return (
     <div className="App">
       <header className="App-header">Dictionary App</header>
-      <main className="cards-container">
-        <WordCard front={words[0].front} back={words[0].back} />
-        <WordCard front={words[1].front} back={words[1].back} />
-        <WordCard front={words[2].front} back={words[2].back} />
-        <WordCard front={words[3].front} back={words[3].back} />
-        <WordCard front={words[4].front} back={words[4].back} />
-        <WordCard front={words[5].front} back={words[5].back} />
+      <main>
+        <WordForm />
+        <CardsContainer cardList={cardList} />
       </main>
     </div>
   );
