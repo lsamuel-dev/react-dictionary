@@ -1,11 +1,11 @@
 import React from "react";
 
-import WordCard from "./Components/WordCard/WordCard";
 import WordForm from "./Components/WordForm/WordForm";
 import CardsContainer from "./Components/CardsContainer/CardsContainer";
 
 import "./App.css";
 
+// This function is a Statefull Component - it has state and logic to manage that state.
 function App() {
   const [words, setWords] = React.useState([
     { front: "translation", back: "Übersetzung" },
@@ -15,16 +15,13 @@ function App() {
     { front: "square", back: "Platz" },
   ]);
 
-  const cardList = words.map((word) => (
-    <WordCard front={word.front} back={word.back} key={`${word.front}`} />
-  ));
-
   return (
     <div className="App">
       <header className="App-header">Dictionary App</header>
       <main>
         <WordForm />
-        <CardsContainer cardList={cardList} />
+        <CardsContainer words={words} /> // This is a Stateless Component. It
+        doesn't have its own state.
       </main>
     </div>
   );
