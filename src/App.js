@@ -1,13 +1,16 @@
 import React from "react";
-import "./App.css";
+
 import WordCard from "./Components/WordCard/WordCard";
-import CardsContainer from "./Components/CardsContainer/CardsContainer";
 import WordForm from "./Components/WordForm/WordForm";
+import CardsContainer from "./Components/CardsContainer/CardsContainer";
+
+import "./App.css";
 
 function App() {
   const [words, setWords] = React.useState([
     { front: "translation", back: "Übersetzung" },
     { front: "egg", back: "Ei" },
+    { front: "taxi", back: "Taxi" },
     { front: "paper", back: "Papier" },
     { front: "square", back: "Platz" },
   ]);

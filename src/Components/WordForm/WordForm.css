@@ -1,6 +1,32 @@
 .card-form {
+  background-color: #ccc;
+  padding: 20px; /* This adds the space you're missing at the bottom */
   width: 400px;
-  height: 275px;
-  background-color: lightgray;
-  margin: 25px auto;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15x; /* This creates uniform space between all rows */
+  align-items: center;
+}
+
+.form-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-form input {
+  margin-left: 15px;
+  padding: 6px;
+}
+
+.card-form button {
+  padding: 10 px;
+  border: none;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.form-row {
+  margin: 8px auto;
 }
