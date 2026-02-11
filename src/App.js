@@ -15,13 +15,17 @@ function App() {
     { front: "square", back: "Platz" },
   ]);
 
+  const addWord = (front, back) => {
+    const newWords = [...words, { front, back }];
+    setWords(newWords);
+  };
+
   return (
     <div className="App">
       <header className="App-header">Dictionary App</header>
       <main>
-        <WordForm />
-        <CardsContainer words={words} /> // This is a Stateless Component. It
-        doesn't have its own state.
+        <WordForm addWord={addWord} />
+        <CardsContainer words={words} />
       </main>
     </div>
   );
