@@ -20,12 +20,17 @@ function App() {
     setWords(newWords);
   };
 
+  const deleteWord = (front) => {
+    const newWords = words.filter((word) => word.front !== front); // This is a Boolean expression that returns true for all words that do NOT match the front of the word to delete.
+    setWords(newWords);
+  };
+
   return (
     <div className="App">
       <header className="App-header">Dictionary App</header>
       <main>
         <WordForm addWord={addWord} />
-        <CardsContainer words={words} />
+        <CardsContainer words={words} deleteWord={deleteWord} />
       </main>
     </div>
   );
