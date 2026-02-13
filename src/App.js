@@ -5,35 +5,49 @@ import CardsContainer from "./Components/CardsContainer/CardsContainer";
 
 import "./App.css";
 
-// This function is a Statefull Component - it has state and logic to manage that state.
-function App() {
-  const [words, setWords] = React.useState([
-    { front: "translation", back: "Übersetzung" },
-    { front: "egg", back: "Ei" },
-    { front: "taxi", back: "Taxi" },
-    { front: "paper", back: "Papier" },
-    { front: "square", back: "Platz" },
-  ]);
-
-  const addWord = (front, back) => {
-    const newWords = [...words, { front, back }];
-    setWords(newWords);
+class App extends React.Component {
+  state = {
+    words: [
+      { front: "translation", back: "Übersetzung" },
+      { front: "egg", back: "Ei" },
+      { front: "taxi", back: "Taxi" },
+      { front: "paper", back: "Papier" },
+      { front: "square", back: "Platz" },
+    ],
+    score: 0,
   };
 
-  const deleteWord = (front) => {
-    const newWords = words.filter((word) => word.front !== front); // This is a Boolean expression that returns true for all words that do NOT match the front of the word to delete.
-    setWords(newWords);
+  addWord = (front, back) => {
+    // 1. Correctly access state and use spread operator
+    const newWords = [...this.state.words, { front, back }];
+    this.setState({ words: newWords });
   };
 
-  return (
-    <div className="App">
-      <header className="App-header">Dictionary App</header>
-      <main>
-        <WordForm addWord={addWord} />
-        <CardsContainer words={words} deleteWord={deleteWord} />
-      </main>
-    </div>
-  );
+  deleteWord = (front) => {
+    // 2. FIXED: Correct filter syntax to actually remove the word
+    const newWords = this.state.words.filter((word) => word.front !== front);
+
+    // 3. Update state so the UI refreshes
+    this.setState({ words: newWords });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">Dictionary App</header>
+        <main>
+          {/* 4. FIXED: Added 'this.' to addWord */}
+          <WordForm addWord={this.addWord} />
+
+          {/* 5. FIXED: Changed 'this.words' to 'this.state.words' */}
+          <CardsContainer
+            words={this.state.words}
+            deleteWord={this.deleteWord}
+          />
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
