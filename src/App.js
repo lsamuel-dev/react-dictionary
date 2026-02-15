@@ -1,19 +1,22 @@
-import React from "react";
-
+import React from 'react';
+import {useState, useEffect} from "react";
 import WordForm from "./Components/WordForm/WordForm";
 import CardsContainer from "./Components/CardsContainer/CardsContainer";
 
-import "./App.css";
 
 // This function is a Statefull Component - it has state and logic to manage that state.
 function App() {
-  const [words, setWords] = React.useState([
-    { front: "translation", back: "Übersetzung" },
-    { front: "egg", back: "Ei" },
-    { front: "taxi", back: "Taxi" },
-    { front: "paper", back: "Papier" },
-    { front: "square", back: "Platz" },
-  ]);
+  const [words, setWords] = useState([]);
+
+useEffect(
+  () => {
+    fetch('./constants/words.json')
+      .then(x => x.json())
+      .then(data => setWords(data));
+    console.log('USEEFFECT');
+    },
+    [] // dependency array
+);
 
   const addWord = (front, back) => {
     const newWords = [...words, { front, back }];
