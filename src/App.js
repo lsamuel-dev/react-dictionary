@@ -16,6 +16,10 @@ class App extends Component {
       .then((words) => this.setState({ words: words }));
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('APP', prevState, this.state)
+  }
+
   // Keep the capital 'W' here
   addWord = (en, de) => {
     const newWord = { front: en, back: de };
