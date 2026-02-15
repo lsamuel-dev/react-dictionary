@@ -4,14 +4,17 @@ import CardsContainer from "./Components/CardsContainer/CardsContainer";
 
 class App extends Component {
   state = {
-    words: [
-      { front: "translate", back: "übersetzen" },
-      { front: "rule", back: "Regel" },
-      { front: "egg", back: "Ei" },
-      { front: "taxi", back: "Taxi" },
-      { front: "paper", back: "Papier" },
-    ],
+    words: [],
+    score: 0,
   };
+
+  componentDidMount() {
+    this.setState({ words: [{ front: "one", back: "eins" }] });
+
+    fetch("./constants/words.json")
+      .then((data) => data.json())
+      .then((words) => this.setState({ words: words }));
+  }
 
   // Keep the capital 'W' here
   addWord = (en, de) => {

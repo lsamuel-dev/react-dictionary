@@ -2,6 +2,18 @@ import React, { Component } from "react";
 import "./WordCard.css";
 
 export default class WordCard extends Component {
+  componentDidMount() {
+    console.log("MOUNT", this.props.front);
+  }
+
+  componentDidUpdate() {
+    console.log("UPDATE", this.props.front);
+  }
+
+  componentWillUnmount() {
+    console.log("UNMOUNT", this.props.front);
+  }
+
   state = { isFront: true };
 
   handleFlip = () => {
