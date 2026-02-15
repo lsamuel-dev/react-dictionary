@@ -1,52 +1,47 @@
-import React from "react";
+import React, { Component } from "react";
 import "./WordForm.css";
 
-const WordForm = ({ addWord }) => {
-  const handleSubmit = (e) => {
+export default class WordForm extends Component {
+  // Initialize the refs properly
+  enRef = React.createRef();
+  deRef = React.createRef();
+
+  // Use an arrow function so 'this' works
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    // Removed the colons (:) to fix the "not a valid selector" error
-    const enField = document.querySelector("[name= en]");
-    const deField = document.querySelector("[name= de]");
+    // Use .current.value to get the text from the refs
+    const enValue = this.enRef.current.value;
+    const deValue = this.deRef.current.value;
 
-    if (enField && deField) {
-      const enValue = enField.value;
-      const deValue = deField.value;
+    if (enValue && deValue) {
+      // Pass the values to the addWord function in App.js
+      this.props.addWord(enValue, deValue);
 
-      addWord(enValue, deValue);
-      // This clears the input boxes correctly
-      enField.value = "";
-      deField.value = "";
+      // Clear the inputs
+      this.enRef.current.value = "";
+      this.deRef.current.value = "";
     }
   };
 
-  return (
-    <section className="card-form">
-      {" "}
-      <h2>New Card</h2>{" "}
-      <form onSubmit={handleSubmit}>
-        {" "}
-        <div className="form-row">
-          {" "}
-          <label>
-            {" "}
-            English: <input type="text" name="en" placeholder="English" />{" "}
-          </label>{" "}
-        </div>{" "}
-        <div className="form-row">
-          {" "}
-          <label>
-            {" "}
-            German: <input type="text" name="de" placeholder="German" />{" "}
-          </label>{" "}
-        </div>{" "}
-        <div className="form-row">
-          {" "}
-          <button type="submit">Add Word</button>{" "}
-        </div>{" "}
-      </form>{" "}
-    </section>
-  );
-};
-
-export default WordForm;
+  render() {
+    return (
+      <section className="card-form">
+        <h2>New Card</h2>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-row">
+            <label>
+              English: <input type="text" ref={this.enRef} />
+            </label>
+          </div>
+          <div className="form-row">
+            <label>
+              German: <input type="text" ref={this.deRef} />
+            </label>
+          </div>
+          <button type="submit">Add Word</button>
+        </form>
+      </section>
+    );
+  }
+}

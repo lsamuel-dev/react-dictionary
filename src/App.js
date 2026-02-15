@@ -1,50 +1,42 @@
-import React from "react";
-
+import React, { Component } from "react";
 import WordForm from "./Components/WordForm/WordForm";
 import CardsContainer from "./Components/CardsContainer/CardsContainer";
 
-import "./App.css";
-
-class App extends React.Component {
+class App extends Component {
   state = {
     words: [
-      { front: "translation", back: "Übersetzung" },
+      { front: "translate", back: "übersetzen" },
+      { front: "rule", back: "Regel" },
       { front: "egg", back: "Ei" },
       { front: "taxi", back: "Taxi" },
       { front: "paper", back: "Papier" },
-      { front: "square", back: "Platz" },
     ],
-    score: 0,
   };
 
-  addWord = (front, back) => {
-    // 1. Correctly access state and use spread operator
-    const newWords = [...this.state.words, { front, back }];
-    this.setState({ words: newWords });
+  // Keep the capital 'W' here
+  addWord = (en, de) => {
+    const newWord = { front: en, back: de };
+    this.setState({
+      words: [...this.state.words, newWord],
+    });
   };
 
-  deleteWord = (front) => {
-    // 2. FIXED: Correct filter syntax to actually remove the word
-    const newWords = this.state.words.filter((word) => word.front !== front);
-
-    // 3. Update state so the UI refreshes
-    this.setState({ words: newWords });
+  // Add this missing function so the delete buttons work
+  deleteWord = (frontValue) => {
+    this.setState({
+      words: this.state.words.filter((word) => word.front !== frontValue),
+    });
   };
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">Dictionary App</header>
-        <main>
-          {/* 4. FIXED: Added 'this.' to addWord */}
-          <WordForm addWord={this.addWord} />
+        <h1>Dictionary App</h1>
+        {/* FIX: Use this.addWord (Capital W) to match the function above */}
+        <WordForm addWord={this.addWord} />
 
-          {/* 5. FIXED: Changed 'this.words' to 'this.state.words' */}
-          <CardsContainer
-            words={this.state.words}
-            deleteWord={this.deleteWord}
-          />
-        </main>
+        {/* Pass the words and the delete function to the container */}
+        <CardsContainer words={this.state.words} deleteWord={this.deleteWord} />
       </div>
     );
   }

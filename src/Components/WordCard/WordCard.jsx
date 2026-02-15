@@ -2,35 +2,30 @@ import React, { Component } from "react";
 import "./WordCard.css";
 
 export default class WordCard extends Component {
-  state = {
-    isFront: true,
-  };
+  state = { isFront: true };
 
   handleFlip = () => {
-    this.setState({ isFront: !this.State.isFront });
-  };
-
-  handleDelete = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    this.props.deleteWord(this.props.front);
+    this.setState((prevState) => ({ isFront: !prevState.isFront }));
   };
 
   render() {
-    const cardContent = this.state.isFront ? (
-      <div className="card-front">English: {this.props.front}</div>
-    ) : (
-      <div className="card-back">German: {this.props.back}</div>
-    );
+    const { front, back, deleteWord } = this.props;
     return (
-      <div className="word-card" onClick={this.handleFlip}>
-        <span className="delete-card" onClick={this.handleDelete}>
+      <div className="card" onClick={this.handleFlip}>
+        <div className="card-content">
+          {/* Ternary logic to add the labels based on isFront state */}
+          {this.state.isFront ? `English: ${front}` : `German: ${back}`}
+        </div>
+        <button
+          className="delete-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            deleteWord(front);
+          }}
+        >
           X
-        </span>
-        {cardContent}
+        </button>
       </div>
     );
   }
 }
-
-// Note: Remove the second "export default WordCard" at the bottom if it's still there.

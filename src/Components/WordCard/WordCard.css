@@ -1,35 +1,49 @@
-.word-card {
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  margin: 20px;
-  padding: 10px;
-  background-color: lightgoldenrodyellow;
-  display: inline-block;
-  width: 250px;
+.card {
+  background-color: #fff9c4; /* Light yellow from your screenshot */
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  width: 200px;
   height: 150px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: relative; /* Essential for the button to anchor correctly */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin: 10px;
   cursor: pointer;
-  user-select: none;
-  position: relative;
+  overflow: visible; /* CRITICAL: Prevents the button from being cut off */
 }
 
-.delete-card {
-  font-weight: bold;
-  font-size: 24px;
-  border: 2px solid black;
-  border-radius: 50%;
+.card-back {
+  display: none;
+}
+
+.delete-btn {
+  /* Positioning - Adjusted to stay on the card */
   position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-}
+  top: 5px;
+  right: 5px;
 
-.delete-card:hover {
-  background-color: lightgreen;
+  /* Shape and Size */
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+
+  /* Colors and Border */
+  background-color: #c1e1a6; /* The light green you requested */
+  border: 2px solid #000000;
+  color: #000000;
+
+  /* Centering the X */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Font and Interaction */
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1; /* Ensures X is centered vertically */
+  z-index: 10; /* Keeps it above the card content */
 }
