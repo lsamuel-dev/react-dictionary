@@ -14,8 +14,9 @@ function App() {
       .catch((err) => console.error("Error fetching words:", err));
   }, []);
 
-  const addWord = (word) => {
-    setWords([...words, word]);
+  // RESTORED: Catching both parameters sent by your form and structuring them correctly
+  const addWord = (frontText, backText) => {
+    setWords([...words, { front: frontText, back: backText }]);
   };
 
   const deleteWord = (wordFront) => {

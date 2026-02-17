@@ -6,7 +6,7 @@ import "./CardsContainer.css";
 export default function CardsContainer({ words, deleteWord }) {
   useEffect(
     () => {
-      console.log("CardsContainer useEffect");
+      console.log("CardsContainer USEEFFECT");
     },
     [words], // dependency array - this useEffect will run every time the "words" prop changes, which happens when a new word is added or deleted.
   );
