@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lsamuel-dev/react-dictionary/static/css/main.16f1d056.css",
+    "main.js": "/lsamuel-dev/react-dictionary/static/js/main.94fc5125.js",
+    "static/js/453.44f82603.chunk.js": "/lsamuel-dev/react-dictionary/static/js/453.44f82603.chunk.js",
+    "index.html": "/lsamuel-dev/react-dictionary/index.html",
+    "main.16f1d056.css.map": "/lsamuel-dev/react-dictionary/static/css/main.16f1d056.css.map",
+    "main.94fc5125.js.map": "/lsamuel-dev/react-dictionary/static/js/main.94fc5125.js.map",
+    "453.44f82603.chunk.js.map": "/lsamuel-dev/react-dictionary/static/js/453.44f82603.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.16f1d056.css",
+    "static/js/main.94fc5125.js"
+  ]
+}
