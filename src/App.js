@@ -6,7 +6,9 @@ function App() {
   const [words, setWords] = useState([]);
 
   useEffect(() => {
-    fetch("./constants/words.json")
+    // Using process.env.PUBLIC_URL ensures the path works
+    // on both localhost and GitHub Pages sub-directories
+    fetch(`${process.env.PUBLIC_URL}/constants/words.json`)
       .then((response) => response.json())
       .then((data) => {
         setWords(data);
